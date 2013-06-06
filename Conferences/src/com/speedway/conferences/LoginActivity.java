@@ -13,6 +13,7 @@ import android.widget.Toast;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 
 public class LoginActivity extends Activity implements OnClickListener {
 
@@ -80,6 +81,8 @@ public class LoginActivity extends Activity implements OnClickListener {
 					ParseUser.logIn(user, password);
 					Toast.makeText(this, "Success! Found you in database.", Toast.LENGTH_LONG)
 					.show();
+					Intent in = new Intent(v.getContext(), TabActivity.class);
+					startActivity(in);
 				} 
 				// Otherwise show error dialog
 				catch (ParseException e) {
@@ -91,6 +94,8 @@ public class LoginActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.helpBtn:
 			Log.d("Button", "You clicked Help.");
+			Toast.makeText(this, "Help me!!", Toast.LENGTH_LONG)
+			.show();
 			break;
 		}
 	}
