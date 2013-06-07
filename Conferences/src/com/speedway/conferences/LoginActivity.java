@@ -17,6 +17,7 @@ import android.content.Intent;
 
 public class LoginActivity extends Activity implements OnClickListener {
 
+	public static ParseUser currentUser;
 	private Button loginBtn;
 	private Button helpBtn;
 	private String user;
@@ -27,8 +28,8 @@ public class LoginActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
-		ParseUser currentUser = ParseUser.getCurrentUser();
-		if (currentUser != null) {
+		if (ParseUser.getCurrentUser() != null) {
+			Log.w("asdf", "hello");
 			Intent i = new Intent(LoginActivity.this, TabActivity.class);
 			startActivity(i);
 			finish();
