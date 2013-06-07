@@ -27,6 +27,13 @@ public class LoginActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
+		ParseUser currentUser = ParseUser.getCurrentUser();
+		if (currentUser != null) {
+			Intent i = new Intent(LoginActivity.this, TabActivity.class);
+			startActivity(i);
+			finish();
+		}
+
 		// Set on click listeners for buttons
 		loginBtn = (Button) findViewById(R.id.loginBtn);
 		loginBtn.setOnClickListener(this);
@@ -90,7 +97,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 					alertDialog.show();
 				} 
 			}
-			
+
 			break;
 		case R.id.helpBtn:
 			Log.d("Button", "You clicked Help.");
