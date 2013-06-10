@@ -28,12 +28,14 @@ public class LoginActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
-		if (ParseUser.getCurrentUser() != null) {
-			Log.w("asdf", "hello");
+		/*
+		if (currentUser != null) {
+			// Log.w("User", ParseUser.getCurrentUser().getUsername());
 			Intent i = new Intent(LoginActivity.this, TabActivity.class);
 			startActivity(i);
 			finish();
 		}
+		 */
 
 		// Set on click listeners for buttons
 		loginBtn = (Button) findViewById(R.id.loginBtn);
@@ -62,14 +64,6 @@ public class LoginActivity extends Activity implements OnClickListener {
 							dialog.cancel();
 						}
 					});
-			/*
-					.setNegativeButton("Quit",new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog,int id) {
-							LoginActivity.this.finish();
-						} 
-					}); 
-			 */
-
 
 			// Get the username and password from input
 			EditText userInput = (EditText) findViewById(R.id.userEdit);
@@ -89,8 +83,10 @@ public class LoginActivity extends Activity implements OnClickListener {
 					ParseUser.logIn(user, password);
 					Toast.makeText(this, "Success! Found you in database.", Toast.LENGTH_LONG)
 					.show();
+					currentUser = ParseUser.getCurrentUser();
 					Intent in = new Intent(v.getContext(), TabActivity.class);
 					startActivity(in);
+					finish();
 				} 
 				// Otherwise show error dialog
 				catch (ParseException e) {

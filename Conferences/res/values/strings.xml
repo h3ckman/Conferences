@@ -7,5 +7,6 @@
     <string name="title_activity_tab">TabActivity</string>
     <string name="title_activity_schedule">Schedule</string>
     <string name="title_activity_events">EventsActivity</string>
+    <string name="title_activity_single_event">SingleEvent</string>
 
 </resources>
