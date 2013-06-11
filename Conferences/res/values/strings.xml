@@ -8,5 +8,6 @@
     <string name="title_activity_schedule">Schedule</string>
     <string name="title_activity_events">EventsActivity</string>
     <string name="title_activity_single_event">SingleEvent</string>
+    <string name="title_activity_speakers">SpeakersActivity</string>
 
 </resources>
